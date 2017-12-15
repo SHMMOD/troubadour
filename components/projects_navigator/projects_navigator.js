@@ -16,7 +16,7 @@ export default class ProjectsNavigator extends React.Component {
     // console.log(this.props.projects)
     // if (!this.props.projects) return null;
 
-    //need to import StackNavigator not the function
+    //pass in this.props.projects instead of data 
     const Navigate = ProjectsStackNavigator(data);
     return <Navigate/>;
   }

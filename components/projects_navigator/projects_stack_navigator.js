@@ -2,7 +2,7 @@ import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import ProjectsIndexContainer from '../projects/projects_index_container';
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-
+import NoteShow from '../note/note_show';
 // const nav =
 
 export default (projects) => {
@@ -15,9 +15,10 @@ export default (projects) => {
   //screen is for going inside a project: should be project.name
   const ProjectScreen = (project) => {
     return () => (
-      <View>
-        <Text>{project.name}</Text>
-      </View>
+      // <View>
+      //   <Text>{project.name}</Text>
+      // </View>
+      <NoteShow/>
     );
   };
 
