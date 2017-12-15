@@ -17,6 +17,7 @@ export default class ProjectsIndex extends React.Component {
 
   _onPressItem(id) {
     const key = `Project${id}`;
+    console.log(this.props.navigation)
     return () => this.props.navigation.navigate(key);
   }
 

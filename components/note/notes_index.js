@@ -10,11 +10,12 @@ export default class NotesIndex extends React.Component {
 
   _onPressItem(id) {
     const key = `Note${id}`;
-    return () => this.props.navigation.navigate(key);
+    console.log(key)
+    return () => this.props.nav.navigate(key);
   }
 
   render() {
-    const notes = [{id: 3, name: 'note 1'}, {id: 4, name: 'note 2'}];
+    const notes = [{id: 3, name: 'note 3'}, {id: 4, name: 'note 2'}];
 
     // if(!this.props.projects.length) return null;
     return (

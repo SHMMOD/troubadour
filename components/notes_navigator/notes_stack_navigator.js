@@ -1,5 +1,5 @@
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import NotesIndex from '../note/notes_index';
+import NotesIndexContainer from '../note/notes_index_container';
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import NoteShow from '../note/note_show';
@@ -12,7 +12,7 @@ export default (notes) => {
   // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
 
   const NotesScreen = ({ navigation }) => (
-    <NotesIndex navigation={navigation} />
+    <NotesIndexContainer navigation={navigation} />
   );
 
 
