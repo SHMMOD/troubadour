@@ -5,6 +5,7 @@ import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 import ProjectsNavigator from './projects_navigator/projects_navigator';
 
+//change to projects navigator container 
 const ProjectsScreen = () => (
     <ProjectsNavigator/>
 );

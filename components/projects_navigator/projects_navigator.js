@@ -1,41 +1,71 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
+// import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
+// import ProjectsIndexContainer from '../projects/projects_index_container';
+import ProjectsStackNavigator from './projects_stack_navigator';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import ProjectsIndexContainer from '../projects/projects_index_container';
 
-const data = [{id: 3, title: 'my first project'}, {id: 4, title: 'a second project'}];
 
-const ProjectsScreen = ({ navigation }) => (
-  <ProjectsIndexContainer navigation={navigation} data={data} />
-);
-
-const ProjectScreen = (project) => {
-  return () => (
-    <View>
-      <Text>{project.title}</Text>
-    </View>
-  );
-};
-
-let navigatorOptions = {
-  Projects: {
-    screen: ProjectsScreen,
-    navigationOptions: {
-      headerTitle: 'Projects'
-    }
+export default class ProjectsNavigator extends React.Component {
+  constructor(props) {
+    super(props);
   }
-};
+  render(){
+    const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
 
-data.forEach(project => {
-  const stack = {
-    screen: ProjectScreen(project),
-    navigationOptions: {
-      headerTitle: 'Project'
-    }
-  };
-  navigatorOptions[`Project${project.id}`] = stack;
-});
+    // console.log(this.props.projects)
+    // if (!this.props.projects) return null;
 
-const ProjectsNavigator = StackNavigator(navigatorOptions);
+    //need to import StackNavigator not the function
+    const Navigate = ProjectsStackNavigator(data);
+    return <Navigate/>;
+  }
+}
 
-export default ProjectsNavigator;
+
+
+
+//
+//
+//
+// import React from 'react';
+// import { View, Text, Button } from 'react-native';
+// import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
+// import ProjectsIndexContainer from '../projects/projects_index_container';
+//
+// const data = [{id: 3, title: 'my first project'}, {id: 4, title: 'a second project'}];
+//
+// const ProjectsScreen = ({ navigation }) => (
+//   <ProjectsIndexContainer navigation={navigation} data={data} />
+// );
+//
+// const ProjectScreen = (project) => {
+//   return () => (
+//     <View>
+//       <Text>{project.title}</Text>
+//     </View>
+//   );
+// };
+//
+// let navigatorOptions = {
+//   Projects: {
+//     screen: ProjectsScreen,
+//     navigationOptions: {
+//       headerTitle: 'Projects'
+//     }
+//   }
+// };
+//
+// data.forEach(project => {
+//   const stack = {
+//     screen: ProjectScreen(project),
+//     navigationOptions: {
+//       headerTitle: 'Project'
+//     }
+//   };
+//   navigatorOptions[`Project${project.id}`] = stack;
+// });
+//
+// const ProjectsNavigator = StackNavigator(navigatorOptions);
+//
+// export default ProjectsNavigator;

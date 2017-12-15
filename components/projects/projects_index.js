@@ -10,7 +10,7 @@ export default class ProjectsIndex extends React.Component {
 
   //hard code userId for now
   componentDidMount(){
-    this.props.fetchProjects("5a30b30f22350f0b8531ad94");
+    this.props.fetchProjects("5a32b8b684d2033437f6ac31");
     // fetch(`https://facebook.github.io/react-native/movies.json`)
     //   .then(resp => console.log(resp));
   }
@@ -21,12 +21,14 @@ export default class ProjectsIndex extends React.Component {
   }
 
   render() {
+    const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
+
     console.log(this.props.projects)
-    if(!this.props.projects.length) return null;
+    // if(!this.props.projects.length) return null;
     return (
       <List containerStyle={{marginBottom: 20}}>
         {
-          this.props.projects.map((l, i) => (
+        data.map((l, i) => (
             <ListItem
               key={i}
               title={l.name}
