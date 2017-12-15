@@ -30,8 +30,7 @@ export default (projects) => {
     Projects: {
       screen: ProjectsScreen,
       navigationOptions: {
-        headerTitle: 'Projects'
-      }
+        headerTitle: 'Projects'      }
     }
   };
 

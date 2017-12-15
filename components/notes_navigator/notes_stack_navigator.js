@@ -30,7 +30,8 @@ export default (notes) => {
     Notes: {
       screen: NotesScreen,
       navigationOptions: {
-        headerTitle: 'Notes'
+        // headerTitle: 'Notes'
+        header: null
       }
     }
   };
