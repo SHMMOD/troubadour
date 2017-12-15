@@ -30,7 +30,6 @@ export const fetchProjects = userId => dispatch => {
   });
 };
 
-
 export const fetchProject = id => dispatch => {
   return fetchSingleProject(id).then(project => dispatch(receiveProject(project)))
 }
