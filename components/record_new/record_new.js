@@ -38,13 +38,11 @@ class RecordNew extends React.Component {
     AudioRecorder.onFinished = (data) => {
       this._finishRecording(data.status === "OK", data.audioFileURL);
     };
-
-    // this._checkFiles();
   }
 
   _checkFiles() {
     console.log('in _checkFiles');
-    RNFS.readDir(RNFS.DocumentDirectoryPath + '/recordings')
+    RNFS.readDir(RNFS.DocumentDirectoryPath)
       .then((result) => {
         console.log('GOT RESULT', result);
 
