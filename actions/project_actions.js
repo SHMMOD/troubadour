@@ -28,7 +28,8 @@ export const fetchProjects = userId => dispatch => {
         dispatch(receiveProjects(obj));
       })
       .catch(err => console.log('error:', err));
-    });
+    })
+    .catch(err => console.log('error:', err));
 };
 
 
