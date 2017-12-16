@@ -7,8 +7,8 @@ export const fetchUserProjects = (userId) => {
   //   },
   //
   // });
-  console.log(`https://shmmod.herokuapp.com/api/users/${userId}/projects`);
-  return fetch(`https://shmmod.herokuapp.com/api/users/${userId}/projects`);
+  // console.log(`https://shmmod.herokuapp.com/api/users/${userId}`);
+  return fetch(`https://shmmod.herokuapp.com/api/users/${userId}`);
 };
 
 export const fetchSingleProject = (id) => {
