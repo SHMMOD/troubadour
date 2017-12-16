@@ -5,10 +5,10 @@ import { StyleSheet, View, ScrollView, Text, TextInput } from 'react-native';
 export default class Note extends Component {
   constructor(props){
     super(props);
-    if (this.props.note) {
+    if (this.props.idea) {
       this.state = {
-        title: this.props.note.title,
-        body: this.props.note.body
+        title: this.props.idea.title,
+        body: this.props.idea.body
       };
     } else {
       this.state = {title: '', body: ''};

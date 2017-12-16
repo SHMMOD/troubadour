@@ -12,7 +12,7 @@ export default class NotesIndex extends React.Component {
   }
 
   _onPressItem(id) {
-    const key = `Note${id}`;
+    const key = `Idea${id}`;
     console.log(key);
     return () => this.props.nav.navigate(key);
   }
@@ -33,7 +33,18 @@ export default class NotesIndex extends React.Component {
     // const notes = [{id: 3, name: 'note 3'}, {id: 4, name: 'note 2'}];
     //will get project passed in through props
     //only list the notes from that project
-    //this.props.project.notes.map
+
+    //this.props.ideas
+    //this.props.project.id === this.props.idea.projectId
+
+
+    const relevantIdea = [];
+    this.props.ideas.forEach((idea) => {
+      if (idea.projectId === this.props.project.id) {
+        relevantIdea.push(idea);
+      }
+    });
+
     return (
       <View>
         <Button
@@ -54,7 +65,7 @@ export default class NotesIndex extends React.Component {
           />
         <List containerStyle={{marginBottom: 20}}>
           {
-            this.props.project.notes.map((item, i) => (
+            relevantIdea.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}

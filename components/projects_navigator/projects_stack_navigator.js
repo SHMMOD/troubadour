@@ -4,12 +4,12 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import NoteShow from '../note/note_show';
 import NotesNavigator from '../notes_navigator/notes_navigator';
-import NotesIndex from '../note/notes_index';
+import NotesIndexContainer from '../note/notes_index_container';
 import ProjectNew from '../project_new/project_new';
 import RecordingNew from '../recording_new/recording_new';
 
 //won't need notes
-export default (projects) => {
+export default (projects,ideas) => {
   // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
   const ProjectsScreen = ({ navigation }) => (
     <ProjectsIndexContainer navigation={navigation} />
@@ -20,13 +20,13 @@ export default (projects) => {
   //need to pass in the project to notesindex component
   const ProjectScreen = (project) => {
     return ({navigation}) => (
-      <NotesIndex nav={navigation} project={project} />
+      <NotesIndexContainer nav={navigation} project={project} />
     );
   };
 
-  const NoteScreen = (note) => {
+  const IdeaScreen = (idea) => {
     return ({navigation}) => (
-      <NoteShow note={note} />
+      <NoteShow idea={idea} />
     );
   };
 
@@ -77,19 +77,18 @@ export default (projects) => {
         headerTitle: 'Project'
       }
     };
-
-    //populate stack navigator with all notes
-    project.notes.forEach(note => {
-      const notestack = {
-        screen: NoteScreen(note),
-        navigationOptions: {
-          headerTitle: 'Note'
-        }
-      };
-        navigatorOptions[`Note${note.id}`] = notestack;
-      });
-
     navigatorOptions[`Project${project.id}`] = projstack;
+  });
+
+  //populate stack navigator with all notes
+  ideas.forEach(idea => {
+    const ideastack = {
+      screen: IdeaScreen(idea),
+      navigationOptions: {
+        headerTitle: 'Idea'
+      }
+    };
+      navigatorOptions[`Idea${idea.id}`] = ideastack;
   });
 
   return StackNavigator(navigatorOptions);
