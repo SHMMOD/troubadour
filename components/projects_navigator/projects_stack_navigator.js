@@ -69,16 +69,6 @@ export default (projects) => {
     }
   };
 
-  //might need to loop through each project, then get each note from the project to populate the navOptions
-  // notes.forEach(note => {
-  //   const stack = {
-  //     screen: NoteScreen,
-  //     navigationOptions: {
-  //       headerTitle: 'Note'
-  //     }
-  //   };
-  //   navigatorOptions[`Note${note.id}`] = stack;
-  // });
 
   projects.forEach(project => {
     const projstack = {
@@ -102,6 +92,5 @@ export default (projects) => {
     navigatorOptions[`Project${project.id}`] = projstack;
   });
 
-  //need to import StackNavigator not the function
   return StackNavigator(navigatorOptions);
 };
