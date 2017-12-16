@@ -7,7 +7,7 @@ const receiveUser = (user) => ({
   user
 });
 
-export const fetchSingleUser = (userId) => dispatch => ({
+export const fetchSingleUser = (userId) => dispatch => {
   return fetchUser(userId)
     .then(resp => {
       resp.json().then(obj => {
@@ -16,4 +16,4 @@ export const fetchSingleUser = (userId) => dispatch => ({
       })
       .catch(err => console.log('error:', err));
     });
-})
+};
