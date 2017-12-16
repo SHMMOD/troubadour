@@ -10,13 +10,6 @@ export default class ProjectsIndex extends React.Component {
     this._onPressItem = this._onPressItem.bind(this);
   }
 
-  //hard code userId for now
-  componentDidMount(){
-    this.props.fetchProjects("5a3355134ecec93ed167650c");
-    // fetch(`https://facebook.github.io/react-native/movies.json`)
-    //   .then(resp => console.log(resp));
-  }
-
   _onPressNew() {
     this.props.navigation.navigate('ProjectNew');
   }
