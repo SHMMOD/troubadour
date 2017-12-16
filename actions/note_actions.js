@@ -1,22 +1,16 @@
-import * as NoteUtil from '../utils/note_api_util';
+// import * as NoteUtil from '../utils/note_api_util';
 
-export const RECEIVE_NOTE = 'RECEIVE_NOTE';
-export const RECEIVE_NOTES = 'RECEIVE_NOTES';
-export const REMOVE_NOTE = 'REMOVE_NOTE';
+export const RECEIVE_IDEA = 'RECEIVE_IDEA';
+export const REMOVE_IDEA = 'REMOVE_IDEA';
 
-const receiveProject = (note) => ({
-  type: RECEIVE_NOTE,
-  note
+const receiveIdea = (idea) => ({
+  type: RECEIVE_IDEA,
+  idea
 });
 
-const receiveProjects = notes => ({
-  type: RECEIVE_NOTES,
-  notes
-});
-
-const removeProject = note => ({
-  type: REMOVE_NOTE,
-  note
+const removeIdea = idea => ({
+  type: REMOVE_IDEA,
+  idea
 });
 
 //need to add thunk action creators
