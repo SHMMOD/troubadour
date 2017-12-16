@@ -9,7 +9,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProjects("5a3355134ecec93ed167650c");
+    this.props.fetchSingleUser("5a347a71217e1d4e1c0f17a6");
   }
 
   render() {
