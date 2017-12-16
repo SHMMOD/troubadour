@@ -4,18 +4,16 @@ import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 import ProjectsNavigatorContainer from './projects_navigator/projects_navigator_container';
-import RecordingNew from './recording_new/recording_new';
 
 //change to projects navigator container
 const ProjectsScreen = () => (
-    <ProjectsNavigatorContainer/>
+  <ProjectsNavigatorContainer/>
 );
 
-// <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//   <Text>Files Screen</Text>
-// </View>
 const FilesScreen = () => (
-  <RecordingNew />
+  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Text>Files Screen</Text>
+  </View>
 );
 
 const FavoritesScreen = () => (

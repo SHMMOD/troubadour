@@ -54,10 +54,10 @@ export default class NotesIndex extends React.Component {
           />
         <List containerStyle={{marginBottom: 20}}>
           {
-            notes.map((item, i) => (
+            this.props.project.notes.map((item, i) => (
               <ListItem
                 key={i}
-                title={item.name}
+                title={item.title}
                 onPress={this._onPressItem(item.id)}
                 leftIcon={{name: 'music-note'}}
                 />
