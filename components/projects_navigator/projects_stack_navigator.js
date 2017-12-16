@@ -3,7 +3,6 @@ import ProjectsIndexContainer from '../projects/projects_index_container';
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import NoteShow from '../note/note_show';
-import NotesNavigator from '../notes_navigator/notes_navigator';
 import NotesIndexContainer from '../note/notes_index_container';
 import ProjectNew from '../project_new/project_new';
 import RecordingNew from '../recording_new/recording_new';
@@ -69,7 +68,7 @@ export default (projects,ideas) => {
     }
   };
 
-
+  debugger
   projects.forEach(project => {
     const projstack = {
       screen: ProjectScreen(project),
