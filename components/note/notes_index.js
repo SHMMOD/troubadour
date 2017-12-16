@@ -30,9 +30,10 @@ export default class NotesIndex extends React.Component {
   }
 
   render() {
-    const notes = [{id: 3, name: 'note 3'}, {id: 4, name: 'note 2'}];
-
-    // if(!this.props.projects.length) return null;
+    // const notes = [{id: 3, name: 'note 3'}, {id: 4, name: 'note 2'}];
+    //will get project passed in through props
+    //only list the notes from that project
+    //this.props.project.notes.map
     return (
       <View>
         <Button
