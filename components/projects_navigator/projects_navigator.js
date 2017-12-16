@@ -13,15 +13,18 @@ export default class ProjectsNavigator extends React.Component {
   render(){
     // const data = [{id: 3, name: 'my first project', notes:[{id: 3, title: 'note 1',body: 'sdfsdf'}, {id: 4, name: 'note 2'}] },
     //               {id: 4, name: 'a second project'}];
-    const notes = [{id: 3, name: 'note 1'}, {id: 4, name: 'note 2'}];
+    // const notes = [{id: 3, name: 'note 1'}, {id: 4, name: 'note 2'}];
 
     // console.log(this.props.projects)
-    // if (!this.props.projects) return null;
+    
+    if (!this.props.projects) return null;
 
     //pass in this.props.projects instead of data
     const projects = this.props.projects;
-    //won't need to pass notes in, can just get from projects 
-    const Navigate = ProjectsStackNavigator(projects,notes);
+    console.log(projects);
+
+    //won't need to pass notes in, can just get from projects
+    const Navigate = ProjectsStackNavigator(projects);
     return <Navigate/>;
   }
 }

@@ -7,7 +7,7 @@ import NotesNavigator from '../notes_navigator/notes_navigator';
 import NotesIndex from '../note/notes_index';
 
 //won't need notes
-export default (projects,notes) => {
+export default (projects) => {
 
   // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
   const ProjectsScreen = ({ navigation }) => (
@@ -23,8 +23,11 @@ export default (projects,notes) => {
     );
   };
 
-  const NoteScreen = () => {
-      return <NoteShow/>
+  const NoteScreen = (note) => {
+
+    return ({navigation}) => (
+      <NoteShow note={note} />
+    );
   };
 
   let navigatorOptions = {
@@ -58,7 +61,7 @@ export default (projects,notes) => {
     //populate stack navigator with all notes
     project.notes.forEach(note => {
       const notestack = {
-        screen: NoteScreen,
+        screen: NoteScreen(note),
         navigationOptions: {
           headerTitle: 'Note'
         }

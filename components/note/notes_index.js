@@ -25,7 +25,7 @@ export default class NotesIndex extends React.Component {
         this.props.project.notes.map((item, i) => (
             <ListItem
               key={i}
-              title={item.name}
+              title={item.title}
               onPress={this._onPressItem(item.id)}
             />
           ))
