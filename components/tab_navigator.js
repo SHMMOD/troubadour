@@ -4,9 +4,9 @@ import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 4.4.2
 import ProjectsNavigator from './projects_navigator/projects_navigator';
-import RecordNew from './record_new/record_new';
+import RecordingNew from './recording_new/recording_new';
 
-//change to projects navigator container 
+//change to projects navigator container
 const ProjectsScreen = () => (
     <ProjectsNavigator/>
 );
@@ -15,7 +15,7 @@ const ProjectsScreen = () => (
 //   <Text>Files Screen</Text>
 // </View>
 const FilesScreen = () => (
-  <RecordNew />
+  <RecordingNew />
 );
 
 const FavoritesScreen = () => (
@@ -42,10 +42,10 @@ const RootTabs = TabNavigator({
   Files: {
     screen: FilesScreen,
     navigationOptions: {
-      tabBarLabel: 'Files',
+      tabBarLabel: 'Ideas',
       tabBarIcon: ({ tintColor, focused }) => (
         <Ionicons
-          name={focused ? 'ios-list' : 'ios-list-outline'}
+          name={focused ? 'ios-bulb' : 'ios-bulb-outline'}
           size={26}
           style={{ color: tintColor }}
         />

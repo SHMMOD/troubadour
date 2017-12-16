@@ -5,6 +5,8 @@ import { View, Text, Button } from 'react-native';
 import NoteShow from '../note/note_show';
 import NotesNavigator from '../notes_navigator/notes_navigator';
 import NotesIndexContainer from '../note/notes_index_container';
+import ProjectNew from '../project_new/project_new';
+import RecordingNew from '../recording_new/recording_new';
 
 export default (projects,notes) => {
 
@@ -13,19 +15,40 @@ export default (projects,notes) => {
     <ProjectsIndexContainer navigation={navigation} />
   );
 
-  const ProjectScreen = ({navigation}) => {
-    return <NotesIndexContainer nav={navigation} />
-  };
+  const ProjectScreen = ({navigation}) => (
+    <NotesIndexContainer nav={navigation} />
+  );
 
-  const NoteScreen = () => {
-      return <NoteShow/>
-  };
+  const NoteScreen = () => (
+    <NoteShow />
+  );
+
+  const ProjectNewScreen = () => (
+    <ProjectNew />
+  );
+
+  const RecordingNewScreen = () => (
+    <RecordingNew />
+  );
 
   let navigatorOptions = {
     Projects: {
       screen: ProjectsScreen,
       navigationOptions: {
-        headerTitle: 'Projects'      }
+        headerTitle: 'Projects'
+      }
+    },
+    ProjectNew: {
+      screen: ProjectNewScreen,
+      navigationOptions: {
+        headerTitle: 'Create Project'
+      }
+    },
+    RecordingNew: {
+      screen: RecordingNewScreen,
+      navigationOptions: {
+        headerTitle: 'Create Recording'
+      }
     }
   };
 

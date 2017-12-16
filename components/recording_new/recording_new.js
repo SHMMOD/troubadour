@@ -5,7 +5,7 @@ import Sound from 'react-native-sound';
 import { AudioRecorder, AudioUtils } from 'react-native-audio';
 var RNFS = require('react-native-fs');
 
-class RecordNew extends React.Component {
+class RecordingNew extends React.Component {
   constructor(props){
     super(props);
 
@@ -207,4 +207,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RecordNew;
+export default RecordingNew;
