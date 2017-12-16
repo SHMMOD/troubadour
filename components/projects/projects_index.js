@@ -1,10 +1,12 @@
 import React from 'react';
+import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import { List, ListItem } from 'react-native-elements';
+import { Button, List, ListItem } from 'react-native-elements';
 
 export default class ProjectsIndex extends React.Component {
   constructor(props) {
     super(props);
+    this._onPressNew = this._onPressNew.bind(this);
     this._onPressItem = this._onPressItem.bind(this);
   }
 
@@ -15,29 +17,42 @@ export default class ProjectsIndex extends React.Component {
     //   .then(resp => console.log(resp));
   }
 
+  _onPressNew() {
+    this.props.navigation.navigate('ProjectNew');
+  }
+
   _onPressItem(id) {
     const key = `Project${id}`;
-    console.log(this.props.navigation)
     return () => this.props.navigation.navigate(key);
   }
 
   render() {
     // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
 
-    console.log(this.props.projects)
-    if(!this.props.projects.length) return null;
+    console.log(this.props.projects);
+
     return (
-      <List containerStyle={{marginBottom: 20}}>
-        {
-        this.props.projects.map((l, i) => (
-            <ListItem
-              key={i}
-              title={l.name}
-              onPress={this._onPressItem(l.id)}
-            />
-          ))
-        }
-      </List>
+      <View>
+        <Button
+          iconRight={{name: 'add-circle-outline'}}
+          title="Create new project"
+          backgroundColor="red"
+          containerViewStyle={{marginTop: 20, borderRadius: 4}}
+          borderRadius={4}
+          onPress={this._onPressNew}
+          />
+        <List containerStyle={{marginBottom: 20}}>
+          {
+            this.props.projects.map((item, i) => (
+              <ListItem
+                key={i}
+                title={item.name}
+                onPress={this._onPressItem(item.id)}
+              />
+            ))
+          }
+        </List>
+      </View>
     );
   }
 }

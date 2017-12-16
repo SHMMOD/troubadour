@@ -5,7 +5,14 @@ import { StyleSheet, View, ScrollView, Text, TextInput } from 'react-native';
 export default class Note extends Component {
   constructor(props){
     super(props);
-    this.state = {title: '',body: ''};
+    if (this.props.note) {
+      this.state = {
+        title: this.props.note.title,
+        body: this.props.note.body
+      };
+    } else {
+      this.state = {title: '', body: ''};
+    }
   }
   render(){
 
@@ -18,7 +25,7 @@ export default class Note extends Component {
           style={{padding:20, paddingTop: 20, fontSize:24}}
           onChangeText={(title) => this.setState({title})}
            editable = {true}
-          value={this.props.note.title}
+          value={this.state.title}
         />
         <TextInput
           placeholder="Add a note"
@@ -26,7 +33,7 @@ export default class Note extends Component {
           onChangeText={(body) => this.setState({body})}
           multiline={true}
           editable = {true}
-          value={this.props.note.body}
+          value={this.state.body}
         />
     </View>
 

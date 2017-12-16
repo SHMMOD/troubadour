@@ -21,16 +21,18 @@ const removeProject = project => ({
 
 
 export const fetchProjects = userId => dispatch => {
-  return fetchUserProjects(userId).then(resp => {
-    // console.log(JSON.parse(projects._bodyText))
-    resp.json().then(obj => {
-      console.log(obj);
-      dispatch(receiveProjects(obj));
+  return fetchUserProjects(userId)
+    .then(resp => {
+      resp.json().then(obj => {
+        console.log(obj);
+        dispatch(receiveProjects(obj));
+      })
+      .catch(err => console.log('error:', err));
     });
-  });
 };
 
-export const fetchProject = id => dispatch => {
-  return fetchSingleProject(id).then(project => dispatch(receiveProject(project)))
-}
+
+// export const fetchProject = id => dispatch => {
+//   return fetchSingleProject(id).then(project => dispatch(receiveProject(project)))
+// }
 //need to add thunk action creators
