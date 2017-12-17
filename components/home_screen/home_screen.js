@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Header } from 'react-native-elements';
+import { colors } from '../styles/colors';
 import RootTabs from './tab_navigator';
 
 export default class HomeScreen extends React.Component {
@@ -16,10 +17,10 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={{flex: 1}}>
         <Header
-          leftComponent={{ icon: 'music-note', color: '#fff' }}
-          centerComponent={{ text: 'SHMMOD', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'menu', color: '#fff' }}
-          outerContainerStyles={{ backgroundColor: 'red' }}
+          leftComponent={{ icon: 'music-note', color: colors.secondary }}
+          centerComponent={{ text: 'Troubadour', style: { fontSize: 20, fontWeight: 'bold', color: colors.secondary } }}
+          rightComponent={{ icon: 'menu', color: colors.secondary }}
+          outerContainerStyles={{ backgroundColor: colors.primary }}
         />
         <RootTabs />
       </View>
