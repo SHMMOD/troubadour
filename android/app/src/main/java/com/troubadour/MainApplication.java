@@ -1,4 +1,4 @@
-package com.flexproject;
+package com.troubadour;
 
 import android.app.Application;
 

@@ -75,7 +75,7 @@ export default class Auth0View extends React.Component {
   renderSplash() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>FlexProject Login</Text>
+        <Text style={styles.header}>Troubadour Login</Text>
         <Text>
           You are {'not '}logged in.
         </Text>
