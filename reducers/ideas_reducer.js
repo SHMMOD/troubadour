@@ -6,12 +6,12 @@ export default (oldState={}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_USER:
-      return merge({},action.user.files);
+      return merge({},action.user.ideas);
     case RECEIVE_IDEA:
-      return merge({}, oldState,{[action.file.id]:action.file});
+      return merge({}, oldState,{[action.idea.id]:action.idea});
     case REMOVE_IDEA:
       let newState = merge({},oldState);
-      delete newState[action.file.id];
+      delete newState[action.idea.id];
       return newState;
     default:
       return oldState;

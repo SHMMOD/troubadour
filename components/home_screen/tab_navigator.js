@@ -66,9 +66,10 @@ const RootTabs = TabNavigator({
 }, {
   animationEnabled: true,
   tabBarOptions: {
-    activeTintColor: colors.primary,
+    activeTintColor: colors.secondary,
+    inactiveTintColor: colors.secondary,
     style: {
-      backgroundColor: colors.secondary
+      backgroundColor: colors.primary
     }
   }
 });
