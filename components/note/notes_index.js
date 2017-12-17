@@ -13,19 +13,16 @@ export default class NotesIndex extends React.Component {
 
   _onPressItem(id) {
     const key = `Idea${id}`;
-    console.log(key);
     return () => this.props.nav.navigate(key);
   }
 
   _onPressNote(id) {
     const key = 'NoteNew';
-    console.log(key);
     return () => this.props.nav.navigate(key);
   }
 
   _onPressRecording(id) {
     const key = 'RecordingNew';
-    console.log(key);
     return () => this.props.nav.navigate(key);
   }
 
@@ -38,10 +35,9 @@ export default class NotesIndex extends React.Component {
     //this.props.project.id === this.props.idea.projectId
 
 
-    const relevantIdea = [];
-    this.props.ideas.forEach((idea) => {
-      if (idea.projectId === this.props.project.id) {
-        relevantIdea.push(idea);
+    const relevantIdeas = this.props.ideas.filter((idea) => {
+      if (idea.projectId === this.props.project._id) {
+        return idea;
       }
     });
 
@@ -65,11 +61,11 @@ export default class NotesIndex extends React.Component {
           />
         <List containerStyle={{marginBottom: 20}}>
           {
-            relevantIdea.map((item, i) => (
+            relevantIdeas.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
-                onPress={this._onPressItem(item.id)}
+                onPress={this._onPressItem(item._id)}
                 leftIcon={{name: 'music-note'}}
                 />
             ))

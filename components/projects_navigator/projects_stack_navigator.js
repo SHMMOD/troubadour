@@ -8,8 +8,8 @@ import ProjectNew from '../project_new/project_new';
 import RecordingNew from '../recording_new/recording_new';
 
 //won't need notes
-export default (projects,ideas) => {
-  // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
+export default (projects, ideas) => {
+
   const ProjectsScreen = ({ navigation }) => (
     <ProjectsIndexContainer navigation={navigation} />
   );
@@ -68,7 +68,6 @@ export default (projects,ideas) => {
     }
   };
 
-  debugger
   projects.forEach(project => {
     const projstack = {
       screen: ProjectScreen(project),
@@ -76,7 +75,7 @@ export default (projects,ideas) => {
         headerTitle: 'Project'
       }
     };
-    navigatorOptions[`Project${project.id}`] = projstack;
+    navigatorOptions[`Project${project._id}`] = projstack;
   });
 
   //populate stack navigator with all notes
@@ -87,7 +86,7 @@ export default (projects,ideas) => {
         headerTitle: 'Idea'
       }
     };
-      navigatorOptions[`Idea${idea.id}`] = ideastack;
+      navigatorOptions[`Idea${idea._id}`] = ideastack;
   });
 
   return StackNavigator(navigatorOptions);
