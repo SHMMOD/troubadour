@@ -9,18 +9,28 @@ import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
 export default class ProjectsNavigator extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      projects: this.props.projects,
+      ideas: this.props.ideas
+    };
   }
-  render(){
 
-    if (!this.props.projects || !this.props.ideas) return null;
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      projects: newProps.projects,
+      ideas: newProps.ideas
+    });
+  }
 
-    //pass in this.props.projects instead of data
-    const projects = this.props.projects;
-    const ideas = this.props.ideas;
-    console.log(projects);
+  render() {
+    if (!this.state.projects.length || !this.state.ideas.length) return null;
+
+    const projects = this.state.projects;
+    const ideas = this.state.ideas;
 
     //won't need to pass notes in, can just get from projects
-    const Navigate = ProjectsStackNavigator(projects,ideas);
+    const Navigate = ProjectsStackNavigator(projects, ideas);
     return <Navigate/>;
   }
 }

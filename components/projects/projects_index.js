@@ -21,9 +21,6 @@ export default class ProjectsIndex extends React.Component {
 
   render() {
     // const data = [{id: 3, name: 'my first project'}, {id: 4, name: 'a second project'}];
-
-    console.log(this.props.projects);
-
     return (
       <View>
         <Button
@@ -40,7 +37,7 @@ export default class ProjectsIndex extends React.Component {
               <ListItem
                 key={i}
                 title={item.name}
-                onPress={this._onPressItem(item.id)}
+                onPress={this._onPressItem(item._id)}
               />
             ))
           }

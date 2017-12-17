@@ -11,7 +11,6 @@ export const fetchSingleUser = (userId) => dispatch => {
   return fetchUser(userId)
     .then(resp => {
       resp.json().then(obj => {
-        console.log(obj);
         dispatch(receiveUser(obj));
       })
       .catch(err => console.log('error:', err));
