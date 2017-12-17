@@ -64,7 +64,7 @@ export default class NotesIndex extends React.Component {
             relevantIdeas.map((item, i) => (
               <ListItem
                 key={i}
-                title={item.title}
+                title={item.name}
                 onPress={this._onPressItem(item._id)}
                 leftIcon={{name: 'music-note'}}
                 />
