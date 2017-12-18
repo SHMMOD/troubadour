@@ -17,12 +17,8 @@ const removeIdea = idea => ({
 
 
 export const createSingleIdea = (ideaObject) => dispatch => {
-  
-  return createIdea({
-    "projectId": "5a347bc80351924e4188b1bf",
-    "userId": "5a347a71217e1d4e1c0f17a6",
-    "fileType": "note"
-  })
+
+  return createIdea(ideaObject)
     .then(newIdea => {
       console.log(newIdea)
       newIdea.json().then(obj => {
