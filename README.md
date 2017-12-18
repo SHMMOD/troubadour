@@ -1,25 +1,25 @@
 ## setup
-Run these commands:
+Run this command: `npm install`
+
+Then open `ios/{project name}.xcodeproj` in Xcode.
+
+Running this project file in Xcode should automatically start up iOS Simulator.
+
+If you need to link react native libraries (unlikely) run these commands:
 
 ```
-npm install
 react-native link react-native-vectors-icons
 react-native link react-native-audio
 react-native link react-native-sound
 react-native link react-native-fs
 ```
 
-Open `ios/{project name}.xcodeproj` in Xcode.
+# Troubadour
 
-Running this in Xcode should automatically start up iOS Simulator.
-
-
-# Troubador
-
-(Link to Demo/Splash Page)
+https://shmmod.github.io/troubadour/
 
 ## Summary
-Troubador is an iOS application developed to assist musicians with the song-writing process. Users are able to:
+Troubadour is an iOS application developed to assist musicians with the song-writing process. Users are able to:
 - Create an account and log in using Auth0 (optionally with Google)
 - Create new projects, which contain ideas--text notes or recordings
 - Playback audio recordings
@@ -45,7 +45,7 @@ The front-end was built using React-Native, and it utilizes the Redux architectu
 
 ## Primary Components
 ### Authentication
-When a user opens Troubador, they first see the authentication page handled by Auth0. From here, the user can choose to log in using a username/password or a Google account.
+When a user opens Troubadour, they first see the authentication page handled by Auth0. From here, the user can choose to log in using a username/password or a Google account.
 [screenshot here]
 
 ### Projects
