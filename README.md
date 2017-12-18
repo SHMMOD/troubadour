@@ -41,6 +41,7 @@ The front-end was built using React-Native, and it utilizes the Redux architectu
   - React Native Navigate
   - React Native Audio
   - React Native Sound
+  - React Native Elements
 
 ## Primary Components
 ### Authentication
@@ -52,7 +53,7 @@ A user's notes and recordings--called Ideas--are listed under named projects. In
 [screenshot here]
 
 ### Ideas
-Ideas are divided into two categories: notes and recordings. Notes permit users to jot down their thoughts as they write a song. Recordings allow a user to capture thoughts or ideas that might come during an inconvenient time to type. When a user clicks to create a new note or recording, a POST request is made to the back-end. The body of the POST request determines whether or not to give the title of 'New Note' or 'New Recording'.
+Ideas are divided into two categories: notes and recordings. Notes permit users to jot down their thoughts as they write a song. Recordings allow a user to capture melodic inspiration. When a user clicks to create a new note or recording, a POST request is made to the back-end. The body of the POST request determines whether or not to give the title of 'New Note' or 'New Recording'.
 
 ```
 export const postIdea = async (req, res) => {
@@ -82,6 +83,35 @@ export const postIdea = async (req, res) => {
 };
 ```
 [Screenshot here]
+
+The basic front-end structure and navigation through the app was handled using react-native navigation, through a combination of tab and stack navigators. The stack navigator managed all nested navigation throughout the app, including idea indexes nested under a project, and idea show pages nested under an idea index.  Stack navigators take in a navigatorOptions object that must be populated with all the existing screens, including ones that the user potentially creates during use of the app.  To account for this, all project and ideas for a given user (held in the global redux state) are iterated through to populate the navigatorOptions object.  As a result, each project or idea is added to the navigation structure upon its creation.
+
+
+```
+  projects.forEach(project => {
+    const projstack = {
+      screen: ProjectScreen(project),
+      navigationOptions: {
+        headerTitle: 'Project'
+      }
+    };
+    navigatorOptions[`Project${project._id}`] = projstack;
+  });
+
+  ideas.forEach(idea => {
+    const ideastack = {
+      screen: IdeaScreen(idea),
+      navigationOptions: {
+        headerTitle: 'Idea'
+      }
+    };
+      navigatorOptions[`Idea${idea._id}`] = ideastack;
+  });
+
+  return StackNavigator(navigatorOptions);
+
+```
+
 
 ## Future Features
 - **Rhyming dictionary:** As a user types a note, a GET request will be made to the [RhymeBrain API](http://rhymebrain.com/api.html) to show rhyme suggestions.
