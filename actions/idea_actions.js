@@ -23,7 +23,6 @@ export const createSingleIdea = (ideaObject) => dispatch => {
       console.log(newIdea)
       newIdea.json().then(obj => {
         dispatch(receiveIdea(obj));
-
       })
       .catch(err => console.log('error:',err));
     });

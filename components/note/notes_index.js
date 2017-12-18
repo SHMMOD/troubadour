@@ -21,11 +21,13 @@ export default class NotesIndex extends React.Component {
   _onPressNote(ideaObject) {
 
     return () => {
-      this.props.createSingleIdea(ideaObject).then(idea => console.log(idea));
-      const key = 'NoteNew';
-      this.props.nav.navigate(key);
-
-    }
+      this.props.createSingleIdea(ideaObject).then(idea => {
+        console.log(idea)
+        // const id = idea._id;
+        const key = 'Idea';
+        this.props.nav.navigate(key);
+      });
+    };
   }
 
   _onPressRecording(id) {
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 4
   },
   container: {
-    flex: 1
+    flex: 1,
 
   }
 });
