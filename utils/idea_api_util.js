@@ -1,5 +1,13 @@
 export const createIdea = (ideaObject) =>{
-  return fetch(`https://shmmod.herokuapp.com/api/ideas`);
+  console.log(ideaObject);
+  return fetch(`https://shmmod.herokuapp.com/api/ideas`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(ideaObject)
+  });
 
 };
 

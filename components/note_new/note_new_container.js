@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createSingleIdea: (ideaObject) => dispatch(createSingleIdea(ideaObject))
+  // createSingleIdea: (ideaObject) => dispatch(createSingleIdea(ideaObject))
 });
 
 export default connect(

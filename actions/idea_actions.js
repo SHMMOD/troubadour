@@ -17,7 +17,23 @@ const removeIdea = idea => ({
 
 
 export const createSingleIdea = (ideaObject) => dispatch => {
-  return createIdea(ideaObject).then(newIdea => dispatch(receiveIdea(newIdea)))
-}
+  
+  return createIdea({
+    "projectId": "5a347bc80351924e4188b1bf",
+    "userId": "5a347a71217e1d4e1c0f17a6",
+    "fileType": "note"
+  })
+    .then(newIdea => {
+      console.log(newIdea)
+      newIdea.json().then(obj => {
+        dispatch(receiveIdea(obj));
+
+      })
+      .catch(err => console.log('error:',err));
+    });
+};
+
+
+
 
 //need to add thunk action creators

@@ -19,6 +19,7 @@ export default class Note extends Component {
     //have access to this.props.note
     //value field in text input?
     return(
+      <ScrollView>
       <View>
         <TextInput
           placeholder="Add a title"
@@ -36,6 +37,7 @@ export default class Note extends Component {
           value={this.state.body}
         />
     </View>
+    </ScrollView>
 
 
     );
