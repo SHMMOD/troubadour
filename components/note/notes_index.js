@@ -2,6 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { Button, List, ListItem } from 'react-native-elements';
+import { colors } from '../styles/colors';
 
 export default class NotesIndex extends React.Component {
   constructor(props) {
@@ -73,7 +74,7 @@ export default class NotesIndex extends React.Component {
         <Button
           iconRight={{name: 'add-circle-outline'}}
           title="Create new note"
-          backgroundColor="red"
+          backgroundColor={colors.button}
           containerViewStyle={styles.button}
           borderRadius={4}
           onPress={this._onPressNote(ideaObject)}
@@ -81,7 +82,7 @@ export default class NotesIndex extends React.Component {
         <Button
           iconRight={{name: 'add-circle-outline'}}
           title="Create new recording"
-          backgroundColor="red"
+          backgroundColor={colors.button}
           containerViewStyle={styles.button}
           borderRadius={4}
           onPress={this._onPressRecording()}

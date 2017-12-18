@@ -6,7 +6,7 @@ import AppContainer from './components/app_container';
 
 const store = configureStore();
 
-class FlexProject extends React.Component {
+class Troubadour extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('FlexProject', () => FlexProject);
+AppRegistry.registerComponent('Troubadour', () => Troubadour);

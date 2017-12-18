@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import { Button, List, ListItem } from 'react-native-elements';
+import { colors } from '../styles/colors';
 
 export default class ProjectsIndex extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class ProjectsIndex extends React.Component {
         <Button
           iconRight={{name: 'add-circle-outline'}}
           title="Create new project"
-          backgroundColor="red"
+          backgroundColor={colors.button}
           containerViewStyle={{marginTop: 20, borderRadius: 4}}
           borderRadius={4}
           onPress={this._onPressNew}
