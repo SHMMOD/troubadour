@@ -1,21 +1,28 @@
 import React from 'react';
-import { AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-
+import { AppRegistry, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button } from 'react-native-elements';
 import Sound from 'react-native-sound';
 import { AudioRecorder, AudioUtils } from 'react-native-audio';
 var RNFS = require('react-native-fs');
+import { colors } from '../styles/colors';
 
 class RecordingNew extends React.Component {
   constructor(props){
     super(props);
+
+    const filename = `/${Date.now()}.aac`;
 
     this.state = {
       currentTime: 0.0,
       recording: false,
       stoppedRecording: false,
       finished: false,
-      audioPath: AudioUtils.DocumentDirectoryPath + `/${Date.now()}.aac`
+      filename: filename,
+      audioPath: AudioUtils.DocumentDirectoryPath + filename
     };
+
+    this.onPressSave = this.onPressSave.bind(this);
+    this.onPressDelete = this.onPressDelete.bind(this);
   }
 
   prepareRecordingPath(audioPath) {
@@ -68,13 +75,22 @@ class RecordingNew extends React.Component {
 
   _renderButton(title, onPress, active) {
     let style = (active) ? styles.activeButtonText : styles.buttonText;
+    const icons = {
+      RECORD: 'fiber-manual-record',
+      STOP: 'stop',
+      PAUSE: 'pause',
+      PLAY: 'play-arrow'
+    };
 
     return (
-      <TouchableHighlight style={styles.button} onPress={onPress}>
-        <Text style={style}>
-          {title}
-        </Text>
-      </TouchableHighlight>
+      <Button
+        iconRight={{name: icons[title]}}
+        title={title}
+        backgroundColor={colors.button}
+        containerViewStyle={styles.button}
+        borderRadius={4}
+        onPress={onPress}
+        />
     );
   }
 
@@ -161,16 +177,74 @@ class RecordingNew extends React.Component {
     this._checkFiles();
   }
 
+  onPressSave() {
+
+  }
+
+  onPressDelete() {
+    console.log(this.state);
+    return RNFS.unlink(this.state.audioPath)
+      .then(() => {
+        console.log('FILE DELETED');
+        this._checkFiles();
+      })
+      // `unlink` will throw an error, if the item to unlink does not exist
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.controls}>
-          {this._renderButton("RECORD", () => {this._record()}, this.state.recording )}
-          {this._renderButton("PLAY", () => {this._play()} )}
-          {this._renderButton("STOP", () => {this._stop()} )}
-          {this._renderButton("PAUSE", () => {this._pause()} )}
+    const prerecording = (
+      <View>
+        <View>
+          {this._renderButton("RECORD", () => this._record(), this.state.recording )}
+          {this._renderButton("STOP", () => this._stop() )}
+        </View>
+        <View style={styles.progress}>
           <Text style={styles.progressText}>{this.state.currentTime}s</Text>
         </View>
+      </View>
+    );
+
+    const postrecording = (
+      <View>
+        {this._renderButton("PLAY", () => this._play() )}
+        {this._renderButton("PAUSE", () => this._pause() )}
+        <TextInput
+          placeholder="Add a title"
+          style={styles.text}
+          onChangeText={(title) => this.setState({title})}
+          editable = {true}
+          value={this.state.title}
+          />
+        <View style={styles.filesave}>
+          <Button
+            iconRight={{name: 'check', color: 'green'}}
+            title="SAVE"
+            backgroundColor={colors.button}
+            containerViewStyle={styles.button}
+            borderRadius={4}
+            onPress={this.onPressSave}
+            />
+          <Button
+            iconRight={{name: 'close', color: 'red'}}
+            title="DELETE"
+            backgroundColor={colors.button}
+            containerViewStyle={styles.button}
+            borderRadius={4}
+            onPress={this.onPressDelete}
+            />
+
+        </View>
+      </View>
+    );
+
+    return (
+      <View style={styles.container}>
+        {
+          !this.state.finished ? prerecording : postrecording
+        }
       </View>
     );
   }
@@ -179,31 +253,39 @@ class RecordingNew extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2b608a",
+    justifyContent: 'flex-start'
   },
-  controls: {
-    justifyContent: 'center',
+  progress: {
     alignItems: 'center',
-    flex: 1,
+    justifyContent: 'flex-start'
   },
   progressText: {
-    paddingTop: 50,
     fontSize: 50,
-    color: "#fff"
+    paddingTop: 20
   },
   button: {
-    padding: 20
+    marginTop: 20
   },
   disabledButtonText: {
     color: '#eee'
   },
   buttonText: {
     fontSize: 20,
-    color: "#fff"
+    // color: "#fff"
   },
   activeButtonText: {
     fontSize: 20,
     color: "#B81F00"
+  },
+  text: {
+    padding:20,
+    paddingTop: 20,
+    fontSize: 24,
+    textAlign: 'center'
+  },
+  filesave: {
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 });
 
