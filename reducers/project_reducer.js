@@ -8,10 +8,10 @@ export default (oldState={}, action) => {
     case RECEIVE_USER:
       return merge({},action.user.projects);
     case RECEIVE_PROJECT:
-      return merge({}, oldState,{[action.project.id]:action.project});
+      return merge({}, oldState,{[action.project._id]:action.project});
     case REMOVE_PROJECT:
       let newState = merge({},oldState);
-      delete newState[action.project.id];
+      delete newState[action.project._id];
       return newState;
     default:
       return oldState;

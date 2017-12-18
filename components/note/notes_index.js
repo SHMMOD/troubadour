@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { Button, List, ListItem } from 'react-native-elements';
 import { colors } from '../styles/colors';
 
@@ -12,14 +12,23 @@ export default class NotesIndex extends React.Component {
     this._onPressRecording = this._onPressRecording.bind(this);
   }
 
+  //items that already exist
   _onPressItem(id) {
     const key = `Idea${id}`;
     return () => this.props.nav.navigate(key);
   }
 
-  _onPressNote(id) {
-    const key = 'NoteNew';
-    return () => this.props.nav.navigate(key);
+  //key shouldn't be note new, should have id
+  _onPressNote(ideaObject) {
+
+    return () => {
+      this.props.createSingleIdea(ideaObject).then(idea => {
+        console.log(idea)
+        // const id = idea._id;
+        const key = 'Idea';
+        this.props.nav.navigate(key);
+      });
+    };
   }
 
   _onPressRecording(id) {
@@ -42,15 +51,33 @@ export default class NotesIndex extends React.Component {
       }
     });
 
+
+    //_projectId, userId, fileType
+    // {
+    //   "_projectId":  ,
+    //   "userId": ,
+    //   "fileType": "note"
+    //
+    // }
+
+    //has access to this.props.project
+    const ideaObject = {
+      "projectId": this.props.project._id,
+      "userId": "5a347a71217e1d4e1c0f17a6",
+      "fileType": "note"
+    };
+
+
     return (
-      <View>
+      <ScrollView>
+      <View style={styles.container}>
         <Button
           iconRight={{name: 'add-circle-outline'}}
           title="Create new note"
           backgroundColor={colors.button}
           containerViewStyle={styles.button}
           borderRadius={4}
-          onPress={this._onPressNote()}
+          onPress={this._onPressNote(ideaObject)}
           />
         <Button
           iconRight={{name: 'add-circle-outline'}}
@@ -65,7 +92,7 @@ export default class NotesIndex extends React.Component {
             relevantIdeas.map((item, i) => (
               <ListItem
                 key={i}
-                title={item.title}
+                title={item.name}
                 onPress={this._onPressItem(item._id)}
                 leftIcon={{name: 'music-note'}}
                 />
@@ -73,6 +100,7 @@ export default class NotesIndex extends React.Component {
           }
         </List>
       </View>
+      </ScrollView>
     );
   }
 }
@@ -81,5 +109,9 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     borderRadius: 4
+  },
+  container: {
+    flex: 1,
+
   }
 });

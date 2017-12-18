@@ -10,9 +10,9 @@ const ProjectsScreen = () => (
   <ProjectsNavigatorContainer/>
 );
 
-const FilesScreen = () => (
+const IdeasScreen = () => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Files Screen</Text>
+    <Text>Ideas Screen</Text>
   </View>
 );
 
@@ -37,8 +37,8 @@ const RootTabs = TabNavigator({
       ),
     },
   },
-  Files: {
-    screen: FilesScreen,
+  Ideas: {
+    screen: IdeasScreen,
     navigationOptions: {
       tabBarLabel: 'Ideas',
       tabBarIcon: ({ tintColor, focused }) => (

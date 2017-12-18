@@ -4,6 +4,8 @@ import {values} from 'lodash';
 import { toArray } from '../../reducers/selectors';
 // import { fetchProjects, fetchProject } from '../../actions/project_actions';
 import NotesIndex from './notes_index';
+import {createSingleIdea} from '../../actions/idea_actions';
+
 
 const mapStateToProps = state => ({
 
@@ -17,6 +19,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   // fetchProjects: (userId) => dispatch(fetchProjects(userId))
+  createSingleIdea: (ideaObject) => dispatch(createSingleIdea(ideaObject))
 });
 
 export default connect(
