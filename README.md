@@ -26,7 +26,7 @@ Troubadour is an iOS application developed to assist musicians with the song-wri
 
 ## Overall Structure
 **Back-End**
-The app was built using a Node.js + Express backend with a MongoDB database. RESTful API requests return a JSON response.
+The app was built using a Node.js + Express backend with a MongoDB database. RESTful API requests return a JSON response. See code here: [repo](https://github.com/SHMMOD/flex-project)
 
 **Front-End**
 The front-end was built using React-Native, and it utilizes the Redux architecture. Navigation in between windows is facilitated through the use of the React Native Navigation library. Additionally, authentication is handled via the Auth0 library, permitting users to create an account or sign in using an email/password combination or their Google account.
