@@ -165,7 +165,13 @@ header.masthead {
 .service-box {
   max-width: 400px; }
 
-#ui .service-box {
+#ui .title-container {
+  margin-bottom: 60px; }
+  @media (min-width: 768px) {
+    #ui .title-container {
+      margin-bottom: 0; } }
+
+#ui .mt-5 {
   margin-top: 0 !important; }
 
 #ui .iphone-device {
@@ -183,9 +189,7 @@ header.masthead {
 #ui .mb-3 {
   font-size: 2.25rem;
   text-transform: uppercase;
-  font-weight: 700;
-  padding-bottom: 10px;
-  border-bottom: 3px solid white; }
+  font-weight: 700; }
 
 .text-primary {
   color: #facac0 !important; }

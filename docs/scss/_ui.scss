@@ -1,5 +1,13 @@
 #ui {
-  .service-box {
+  .title-container {
+    margin-bottom: 60px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .mt-5 {
     margin-top: 0!important;
   }
 
@@ -21,7 +29,5 @@
     font-size: 2.25rem;
     text-transform: uppercase;
     font-weight: 700;
-    padding-bottom: 10px;
-    border-bottom: 3px solid white;
   }
 }
