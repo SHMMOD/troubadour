@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Creative v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/creative)
- * Copyright 2013-2017 Start Bootstrap
+ * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
  */
 body,
@@ -165,16 +165,27 @@ header.masthead {
 .service-box {
   max-width: 400px; }
 
-.iphone-device {
+#ui .service-box {
+  margin-top: 0 !important; }
+
+#ui .iphone-device {
   position: relative;
-  background-image: url(../img/iphone.png);
+  background-image: url(../img/iphone-silver.png);
   background-position: center center;
-  background-size: 740px 740px;
+  background-size: 620px 624px;
+  background-repeat: no-repeat;
   height: 740px; }
 
-.iphone-screen {
+#ui .iphone-screen {
   position: relative;
-  top: 162px; }
+  top: 160px; }
+
+#ui .mb-3 {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 10px;
+  border-bottom: 3px solid white; }
 
 .text-primary {
   color: #facac0 !important; }
