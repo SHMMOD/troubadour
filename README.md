@@ -48,14 +48,14 @@ The front-end was built using React-Native, and it utilizes the Redux architectu
 When a user opens Troubadour, they first see the authentication page handled by Auth0. From here, the user can choose to log in using a username/password or a Google account.
 
 <p align="center">
-  <img src="./docs/img/auth0.png" alt="auth0">
+  <img src="./docs/img/auth0.png" alt="auth0" width=400>
 </p>
 
 ### Projects
 A user's notes and recordings--called Ideas--are listed under named projects. In order to populate the projects index, a GET request is made to the back-end. A Mongoose query searches for all projects associated with the user and returns them as an array of project objects.
 
 <p align="center">
-  <img src="./docs/img/notes-index.png" alt="notes">
+  <img src="./docs/img/notes-index.png" alt="notes" width=400>
 </p>
 
 ### Ideas
@@ -89,11 +89,8 @@ export const postIdea = async (req, res) => {
 };
 ```
 <p align="center">
-  <img src="./docs/img/note-page.png" alt="note">
-</p>
-
-<p align="center">
-  <img src="./docs/img/recording-page.png" alt="recording">
+  <img src="./docs/img/note-page.png" alt="note" width=400>
+  <img src="./docs/img/recording-page.png" alt="recording" width=400>
 </p>
 
 The basic front-end structure and navigation through the app was handled using react-native navigation, through a combination of tab and stack navigators. The stack navigator managed all nested navigation throughout the app, including idea indexes nested under a project, and idea show pages nested under an idea index.  Stack navigators take in a navigatorOptions object that must be populated with all the existing screens, including ones that the user potentially creates during use of the app.  To account for this, all project and ideas for a given user (held in the global redux state) are iterated through to populate the navigatorOptions object.  As a result, each project or idea is added to the navigation structure upon its creation.
