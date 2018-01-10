@@ -31,7 +31,7 @@ The app was built using a Node.js + Express backend with a MongoDB database. RES
 **Front-End**
 The front-end was built using React-Native, and it utilizes the Redux architecture. Navigation in between windows is facilitated through the use of the React Native Navigation library. Additionally, authentication is handled via the Auth0 library, permitting users to create an account or sign in using an email/password combination or their Google account.
 
-## Languages
+## Tech Stack
 - MongoDB
   - Mongoose
 - Node.js
